@@ -17,4 +17,7 @@ terraform {
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
   features {}
+  
+  # Use Azure CLI authentication
+  use_cli = true
 }
