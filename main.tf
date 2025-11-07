@@ -67,7 +67,11 @@ resource "azurerm_private_dns_resolver_inbound_endpoint" "example" {
   name                    = "${var.dns_resolver_name}-inbound"
   private_dns_resolver_id = azurerm_private_dns_resolver.example.id
   location                = var.resource_group_location
-  subnet_id               = azurerm_subnet.inbound.id
+
+  ip_configurations {
+    private_ip_allocation_method = "Dynamic"
+    subnet_id                    = azurerm_subnet.inbound.id
+  }
 
   tags = {
     Environment = var.environment_tag
