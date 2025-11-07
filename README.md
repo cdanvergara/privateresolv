@@ -5,7 +5,10 @@ This Terraform configuration creates an Azure DNS Private Resolver with all requ
 ## What This Configuration Creates
 
 - **DNS Private Resolver**: The main resolver service in your existing virtual network
-- **Dedicated Subnet**: A new subnet in your existing VNet with proper delegation to Microsoft.Network/dnsResolvers
+- **Inbound Subnet**: A dedicated subnet for inbound DNS queries with proper delegation to Microsoft.Network/dnsResolvers
+- **Outbound Subnet**: A dedicated subnet for outbound DNS queries with proper delegation to Microsoft.Network/dnsResolvers
+- **Inbound Endpoint**: Handles DNS queries coming into your virtual network
+- **Outbound Endpoint**: Handles DNS queries going out from your virtual network
 - Uses your existing VNet and resource group infrastructure
 
 ## Prerequisites
@@ -74,8 +77,10 @@ This Terraform configuration creates an Azure DNS Private Resolver with all requ
 | `existing_vnet_resource_group_name` | Resource group of existing VNet | - | Yes |
 | `dns_resolver_name` | Name of DNS Private Resolver | dns-private-resolver | No |
 | `dns_resolver_resource_group_name` | Resource group for DNS resolver | - | Yes |
-| `dns_resolver_subnet_name` | Name of DNS resolver subnet | snet-dns-resolver | No |
-| `dns_resolver_subnet_address_prefix` | Subnet CIDR for DNS resolver | 10.0.1.0/28 | No |
+| `dns_resolver_inbound_subnet_name` | Name of DNS resolver inbound subnet | snet-dns-resolver-inbound | No |
+| `dns_resolver_inbound_subnet_address_prefix` | Subnet CIDR for inbound endpoint | 10.0.1.0/28 | No |
+| `dns_resolver_outbound_subnet_name` | Name of DNS resolver outbound subnet | snet-dns-resolver-outbound | No |
+| `dns_resolver_outbound_subnet_address_prefix` | Subnet CIDR for outbound endpoint | 10.0.2.0/28 | No |
 | `resource_group_location` | Azure region for DNS resolver | eastus | No |
 | `environment_tag` | Environment tag for resources | Development | No |
 

@@ -20,9 +20,29 @@ output "virtual_network_name" {
   value       = data.azurerm_virtual_network.example.name
 }
 
-output "subnet_id" {
-  description = "ID of the DNS resolver subnet"
-  value       = azurerm_subnet.example.id
+output "inbound_subnet_id" {
+  description = "ID of the DNS resolver inbound subnet"
+  value       = azurerm_subnet.inbound.id
+}
+
+output "outbound_subnet_id" {
+  description = "ID of the DNS resolver outbound subnet"
+  value       = azurerm_subnet.outbound.id
+}
+
+output "inbound_endpoint_id" {
+  description = "ID of the DNS resolver inbound endpoint"
+  value       = azurerm_private_dns_resolver_inbound_endpoint.example.id
+}
+
+output "outbound_endpoint_id" {
+  description = "ID of the DNS resolver outbound endpoint"
+  value       = azurerm_private_dns_resolver_outbound_endpoint.example.id
+}
+
+output "inbound_endpoint_ip" {
+  description = "Private IP address of the DNS resolver inbound endpoint"
+  value       = azurerm_private_dns_resolver_inbound_endpoint.example.ip_configurations[0].private_ip_address
 }
 
 output "dns_resolver_id" {

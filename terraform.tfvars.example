@@ -6,10 +6,12 @@ existing_vnet_name                = "my-existing-vnet"
 existing_vnet_resource_group_name = "rg-networking"
 
 # DNS Private Resolver Configuration
-dns_resolver_name                = "my-dns-resolver"
-dns_resolver_resource_group_name = "rg-dns"
-dns_resolver_subnet_name         = "snet-dns-resolver"
-dns_resolver_subnet_address_prefix = "10.0.1.0/28"
+dns_resolver_name                           = "my-dns-resolver"
+dns_resolver_resource_group_name            = "rg-dns"
+dns_resolver_inbound_subnet_name            = "snet-dns-resolver-inbound"
+dns_resolver_inbound_subnet_address_prefix  = "10.0.1.0/28"
+dns_resolver_outbound_subnet_name           = "snet-dns-resolver-outbound"
+dns_resolver_outbound_subnet_address_prefix = "10.0.2.0/28"
 
 # Azure region where the DNS resolver will be created
 resource_group_location = "eastus"
