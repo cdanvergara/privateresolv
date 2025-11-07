@@ -30,7 +30,7 @@ This Terraform configuration creates an Azure DNS Private Resolver with all requ
 
 1. **Clone or download this configuration**
    ```powershell
-   cd c:\GH\dnsresolv
+   clone https://github.com/cdanvergara/privateresolv.git .
    ```
 
 2. **Configure your existing infrastructure details**
